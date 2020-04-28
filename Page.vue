@@ -8,7 +8,7 @@
       <PageNav :sidebar-items="sidebarItems" />
     </div>
 
-    <Content :custom="false"/>
+    <Content class="content" :custom="false"/>
 
     <div class="page-edit">
       <div
