@@ -69,11 +69,14 @@ import SWUpdatePopup from './SWUpdatePopup.vue'
 import { resolveSidebarItems } from './util'
 import GTranslateIO from './GTranslateIO.vue'
 import Redirect from './components/Redirect.vue';
+import RedirectMixin from './mixins/RedirectMixin';
 
 Vue.component('gtranslate-io', GTranslateIO)
 Vue.component('Redirect', Redirect);
 
 export default {
+  mixins: [RedirectMixin],
+
   components: { Home, Page, Sidebar, Navbar, SWUpdatePopup, Footer},
 
   data () {
@@ -152,6 +155,7 @@ export default {
     })
 
     this.$on('sw-updated', this.onSWUpdated)
+    this.checkRedirect();
   },
 
   methods: {

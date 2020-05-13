@@ -1,28 +1,35 @@
 export default {
     methods: {
         checkRedirect() {
-            const redirectionMapping = this.$site.themeConfig.redirectionMapping;
+            if (this.newUrl) {
+                this.$router.replace(this.newUrl);
 
-            if (redirectionMapping) {
-                let path = this.$route.fullPath;
-
-                if (path === '/') {
-                    this.$router.replace(this.$site.themeConfig.defaultURL);
-                    return true;
-                }
-    
-                if (path.substr(0, 2) === '/?') {
-                    path = [path.slice(0, 1), 'index.html', path.slice(1)].join(''); // insert index.html into path
-                }
-    
-                const newUrl = redirectionMapping[path];
-                if (newUrl) {
-                    this.$router.replace(newUrl);
-                    return true;
-                }
+                return true;
             }
 
             return false;
-        }
-    }
+        },
+    },
+  computed: {
+      redirectionMapping() {
+        // add default route
+          let map = {...this.$site.themeConfig.redirectionMapping};
+          map['/'] = this.$site.themeConfig.defaultURL;
+
+          return map;
+      },
+      path() {
+          let path = this.$route.fullPath;
+          const isExistingPath = !!this.redirectionMapping[path];
+
+          if (!isExistingPath && path.substr(0, 2) === '/?') {
+              path = [path.slice(0, 1), 'index.html', path.slice(1)].join(''); // insert index.html into path
+          }
+
+          return path;
+      },
+      newUrl() {
+          return this.redirectionMapping[this.path];
+      }
+  }
 }
