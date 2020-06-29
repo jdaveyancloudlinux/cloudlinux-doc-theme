@@ -62,7 +62,7 @@ export default {
   margin 0 1.2rem 1.5rem 1.6rem
   height 41px
   line-height 41px
-  background-color $codeBgColor
+  background-color #f2f4f5
   border-radius 4px
   font-weight 600
 
