@@ -3,7 +3,7 @@
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
     <router-link
-      :to="$localePath"
+      :to="homeUrl"
       class="home-link"
     >
       <img
@@ -93,6 +93,11 @@ export default {
     submitRequestTitle() {
       return this.$themeLocaleConfig.submitRequest || 'Submit Request';
     },
+    homeUrl() {
+      const defaultUrl = this.$localePath + this.$site.themeConfig.defaultURL;
+      // remove double slashes from path if any
+      return defaultUrl.replace(/\/+/g, '/');
+    }
   }
 }
 

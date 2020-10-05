@@ -15,7 +15,7 @@ export default {
     const active = item.type === 'auto'
       ? selfActive || item.children.some(c => isActive($route, item.basePath + '#' + c.slug))
       : selfActive;
-    const link = renderHeader(h, item.path, item.title || item.path, active);
+    const link = renderHeader(h, item.path, item.title || item.path, active, item.headers);
     const configDepth = $page.frontmatter.sidebarDepth != null
       ? $page.frontmatter.sidebarDepth
       : $site.themeConfig.sidebarDepth;
@@ -59,13 +59,16 @@ function renderLink (h, to, text, active, children) {
   }, [link]);
 }
 
-function renderHeader(h, to, text, active) {
+function renderHeader(h, to, text, active, childHeaders) {
+  const hasDirectChildren = childHeaders.some(child => child.level === 2);
+
   return h('div', {
     class: {
       active,
       'collapsed': active,
       'sidebar-header': true,
-      'sidebar-link': true
+      'sidebar-link': true,
+      'sidebar-header--empty': !hasDirectChildren,
     },
     on: {
       click: (e) => {
@@ -165,4 +168,6 @@ function renderChildren (h, children, path, route, maxDepth, depth = 1) {
       font-weight 500
       border-right 3px solid $accentColor
       background-color $sidebarActiveColor
+.sidebar-header--empty
+  background-image none !important
 </style>
