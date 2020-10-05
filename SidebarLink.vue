@@ -60,7 +60,7 @@ function renderLink (h, to, text, active, children) {
 }
 
 function renderHeader(h, to, text, active, childHeaders) {
-  const hasDirectChildren = childHeaders.some(child => child.level === 2);
+  const hasDirectChildren = !!childHeaders && childHeaders.some(child => child.level === 2);
 
   return h('div', {
     class: {
