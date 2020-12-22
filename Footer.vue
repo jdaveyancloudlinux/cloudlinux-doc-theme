@@ -89,10 +89,15 @@ export default {
 .sidebar-width
     width $sidebarWidth + 2rem
 
+@media (max-width: $MQTablet)
+  .footer
+    height 140px
+
 @media (max-width: $MQMobile)
   .footer
     justify-content center
     margin-left 0
+    height 140px
     div
       display flex
   .footer-social-text
