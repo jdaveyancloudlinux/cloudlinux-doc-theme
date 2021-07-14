@@ -132,10 +132,10 @@ $navbar-horizontal-padding = 1.5rem
   .site-name
     font-size 1rem
     font-weight 600
-    color white
+    color $siteNameColor
     position relative
   .site-name--documentation
-    border-right: 1px solid #fff;
+    border-right: 1px solid $siteNameBorderColor;
     padding-right: 1rem;
     line-height: 1.2rem;
   .links
@@ -171,12 +171,12 @@ $navbar-horizontal-padding = 1.5rem
 
     position: relative;
     background-color: $mainColor;
-    border: 2px solid #fff;
+    border: 2px solid $buttonBorderColor;
     border-radius: 4px;
     font-size: 0.88rem;
     line-height: 1rem;
     margin 0.65rem 1rem 0 0
-    color: #FFFFFF;
+    color: $buttonTextColor;
     text-align: center;
     -webkit-transition-duration: 0.4s; /* Safari */
     transition-duration: 0.4s;

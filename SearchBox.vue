@@ -184,7 +184,7 @@ export default {
     opacity 0.5
     cursor text
     width 10rem
-    color #fff
+    color $inputTextColor
     display inline-block
     border none
     border-radius 2rem
