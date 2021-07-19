@@ -193,7 +193,7 @@ export default {
     padding 0 0.5rem 0 2rem
     outline none
     transition all .2s ease
-    background $mainColor url(./search.svg) 0.6rem 0.5rem no-repeat
+    background $mainColor url(./$searchPicPath) 0.6rem 0.5rem no-repeat
     background-size 1rem
     &:focus
       cursor auto
