@@ -37,6 +37,10 @@
       <a href="https://cloudlinux.zendesk.com/hc/en-us/requests/new" target="_blank" class="btn">
         {{ submitRequestTitle }}
       </a>
+      
+      <a v-if="homeUrl == '/imunifyav/'" href="https://www.imunify360.com/antivirus/?utm_campaign=ImunifyAV%20docs%20-%20Imunify%20antivirus%20button%20-%20Get%20ImunifyAV%20free&utm_source=docsantivirus&utm_medium=docsantivirus&utm_term=docsantivirus&utm_content=docsantivirus" target="_blank" class="btn">
+        {{ avFreeTitle }}
+      </a>
 
       <a :href="$site.themeConfig.try_free" target="_blank" class="btn">
         {{ tryFreeTitle }}
@@ -88,6 +92,10 @@ export default {
 
     tryFreeTitle() {
       return this.$themeLocaleConfig.tryFree || 'Try Free';
+    },
+    
+    avFreeTitle() {
+      return this.$themeLocaleConfig.avFree || 'Get ImunifyAV free';
     },
 
     submitRequestTitle() {
