@@ -1,6 +1,6 @@
 <template>
   <div class="back-to-top">
-    <router-link v-bind:class="{ active: isVisible }" class="nav-arrow top back-to-top__link" to="#app"></router-link>
+    <a v-bind:class="{ active: isVisible }" class="nav-arrow top back-to-top__link" @click="goToTop"></a>
   </div>
 </template>
 
@@ -33,6 +33,10 @@
       handleScroll() {
         this.isVisible = window.pageYOffset > this.boundary;
       },
+      goToTop() {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+      }
     },
   };
 </script>
@@ -45,6 +49,8 @@
     visibility hidden
     opacity 0
     transition visibility 0s, opacity 0.5s linear
+    cursor pointer
+    z-index 10
 
     &.active
       visibility visible
