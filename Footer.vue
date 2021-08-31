@@ -3,7 +3,8 @@
       <!-- <div class="sidebar-width"></div> -->
       <div>
         <a :href="$site.themeConfig.cloudlinuxSite">
-          <img src="./we-are-cloudlinux.svg" alt="We are Cloudlinux">
+          <img v-if="$site.themeConfig.footerCustomLogo" src="$site.themeConfig.footerCustomLogo" alt="$site.themeConfig.footerCustomAltText">
+          <img v-else src="./we-are-cloudlinux.svg" alt="We are Cloudlinux">
         </a>
       </div>
       <div class="footer-company-title">{{ year }}. CloudLinux Inc</div>
