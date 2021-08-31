@@ -3,7 +3,7 @@
       <!-- <div class="sidebar-width"></div> -->
       <div>
         <a :href="$site.themeConfig.cloudlinuxSite">
-          <img v-if="$site.themeConfig.footerCustomLogo" src="$site.themeConfig.footerCustomLogo" alt="$site.themeConfig.footerCustomAltText">
+          <img v-if="$site.themeConfig.cloudlinuxSite == 'https://kuberlogic.com/'" src="$site.themeConfig.footerCustomLogo" alt="$site.themeConfig.footerCustomAltText">
           <img v-else src="./we-are-cloudlinux.svg" alt="We are Cloudlinux">
         </a>
       </div>
