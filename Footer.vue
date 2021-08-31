@@ -3,11 +3,11 @@
       <!-- <div class="sidebar-width"></div> -->
       <div>
         <a :href="$site.themeConfig.cloudlinuxSite">
-          <img v-if="$site.themeConfig.cloudlinuxSite == 'https://kuberlogic.com/'" src="$site.themeConfig.footerCustomLogo" alt="$site.themeConfig.footerCustomAltText">
+          <img v-if="$site.themeConfig.repo == 'cloudlinux/kuberlogic-doc'" :src="$site.themeConfig.footerCustomLogo" :alt="$site.themeConfig.footerCustomAltText" style="height: 50px;">
           <img v-else src="./we-are-cloudlinux.svg" alt="We are Cloudlinux">
         </a>
       </div>
-      <div class="footer-company-title">{{ year }}. CloudLinux Inc</div>
+      <div v-if="$site.themeConfig.repo != 'cloudlinux/kuberlogic-doc'"  class="footer-company-title">{{ year }}. CloudLinux Inc</div>
       <div>
           <div v-for="item in $themeLocaleConfig.bottomLinks">
               <a :href="item.url" target="_blank">{{ item.text }}</a>
