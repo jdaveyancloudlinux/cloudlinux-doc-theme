@@ -2,7 +2,22 @@
   <header class="navbar">
     <SidebarButton @toggle-sidebar="$emit('toggle-sidebar')"/>
 
-    <router-link
+    <a v-if="customHomeUrl" :href="customHomeUrl" class="home-link">
+      <img
+        class="logo"
+        v-if="$site.themeConfig.logo"
+        :src="$withBase($site.themeConfig.logo)"
+        :alt="$siteTitle"
+      >
+      <span
+        ref="siteName"
+        class="site-name site-name--documentation"
+        v-if="$siteTitle"
+        :class="{ 'can-hide': $site.themeConfig.logo }"
+      >{{ $siteTitle }}</span>
+    </a>
+
+    <router-link v-else
       :to="homeUrl"
       class="home-link"
     >
@@ -96,6 +111,10 @@ export default {
     
     avFreeTitle() {
       return this.$themeLocaleConfig.avFree || 'Get ImunifyAV free';
+    },
+    
+    customHomeUrl() {
+      return this.$themeLocaleConfig.customHomeUrl;
     },
 
     submitRequestTitle() {
